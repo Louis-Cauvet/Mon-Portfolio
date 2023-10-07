@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Entrainement d'intégration - Louis Cauvet</title>
+
+        <!-- Ressources -->
+        <link rel="stylesheet" type="text/css" href="homePage_sheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="120x120" href="../../img/package_favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../img/package_favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../img/package_favicon/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+        <!-- Métadonnées -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="keywords" content="HTML, CSS, JS, Intégration, Figma">
+        <meta name="description" content="Intégration d'une page à partir d'un modèle Figma basé sur le test technique de Pilot'In">
+        <meta name="author" content="Louis Cauvet">
+    </head>
+
+    <body>
+        <header>
+            <img id="logo" src="img/Logo_blanc.svg" alt="logo du site">
+            <div id="bandeauMenuGrand">
+                <button class="choixMenu" onclick="afficherSousMenuGrand(1)">Produits 
+                    <i id="chevron1Grand" class="fa fa-chevron-down"></i>
+                </button>
+                <button class="choixMenu" onclick="afficherSousMenuGrand(2)">Ressources
+                    <i id="chevron2Grand" class="fa fa-chevron-down"></i>
+                </button>
+                <button class="choixMenu">Entreprise</button>
+                <div id="zoneDemoLangueGrand">
+                    <button id="boutonDemoGrand" class="choixMenu boutonFleche">Demo gratuite
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                    <select id="choixLangueGrand" class="choixMenu" name="langues">
+                        <option value="fr">FR<i class="fa fa-chevron-down"></i></option>
+                        <option value="en">EN<i class="fa fa-chevron-down"></i></option>
+                        <option value="ch">CH<i class="fa fa-chevron-down"></i></option>
+                    </select>
+                </div>
+            </div>
+            <button id="burgerMenu" onclick="afficherBandeauMenu()">
+                <span id="burgerHaut" class="iconeBurger"></span>
+                <span id="burgerMilieu" class="iconeBurger"></span>
+                <span id="burgerBas" class="iconeBurger"></span>
+            </button>
+        </header>
+
+        <div id="bandeauMenu">
+            <button class="choixMenu" onclick="afficherSousMenu(1)">Produits 
+                <i id="chevron1" class="fa fa-chevron-down"></i>
+            </button>
+            <div id="sousMenu1" class="sousMenu">
+                <h3 class="titreSousMenu">Nos produits</h3>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+            </div>
+            <button class="choixMenu" onclick="afficherSousMenu(2)">Ressources
+                <i id="chevron2" class="fa fa-chevron-down"></i>
+            </button>
+            <div id="sousMenu2" class="sousMenu">
+                <h3 class="titreSousMenu">Découvrez nos ressources</h3>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+            </div>
+            <button class="choixMenu">Entreprise</button>
+            <div id="zoneDemoLangue">
+                <button id="boutonDemo" class="choixMenu boutonFleche">Demo gratuite
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+                <select id="choixLangue" class="choixMenu" name="langues">
+                    <option value="fr">FR<i class="fa fa-chevron-down"></i></option>
+                    <option value="en">EN<i class="fa fa-chevron-down"></i></option>
+                    <option value="ch">CH<i class="fa fa-chevron-down"></i></option>
+                </select>
+            </div>
+        </div>
+
+        <div id="grandSousMenu1" class="grandSousMenu">
+            <h3 class="titreSousMenu">Nos produits</h3>
+            <div class="zoneContenusSousMenu">
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+            </div>
+        </div>
+
+        <div id="grandSousMenu2" class="grandSousMenu">
+            <h3 class="titreSousMenu">Découvrez nos ressources</h3>
+            <div class="zoneContenusSousMenu">
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+                <div class="contenuSousMenu">
+                    <div class="titreContenuSousMenu">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        DataFactory
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam
+                </div>
+            </div>
+        </div>
+
+        <div id="zoneCorps1">
+            <div class="contenuDeuxParties">
+                <div class="contenuPartieGauche">
+                    <div id="titreCorps1">Rencontrez le futur de votre <div class="autreCouleur">organisation</div> aujourd'hui !</div>
+                    <div id="descriptionCorps1">Nous construisons des logiciels qui permettent aux organisations publiques comme privées d'établir un lien entre données, décisions et stratégie d'exécution.</div>
+                    <button class="boutonRouge boutonFleche boutonMajuscules">Parlons-en !
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                    <div id="logosCorps1">
+                        <img class="logo" src="img/bnp-paribas-logo-couleur.png" alt="logo BNP Paribas">
+                        <img class="logo" src="img/thales-logo.png" alt="logo Thales">
+                        <img class="logo" src="img/axa-logo-couleur.png" alt="logo AXA">
+                        <img class="logo" src="img/republique-fr-logo-couleur.png" alt="logo République Francaise">
+                    </div>
+                </div>
+                <div class="contenuPartieDroite">
+                    <img id="illustrationCorps1" src="img/illustration-data-management.png" alt="illustration data management">
+                </div>
+            </div>
+        </div>
+        <div id="sliderMotsCles">
+            <div id="motsClesDefilants">DATA <div class="autreCouleur">VAULT</div>
+            – DATA <div class="autreCouleur">LAKE</div> 
+            – DATA <div class="autreCouleur">MART</div> 
+            – DATA <div class="autreCouleur">CLOUD</div> 
+            – DATA <div class="autreCouleur">WAREHOUSE</div> 
+            – STRATEGIE <div class="autreCouleur">D'EXECUTION</div></div>
+        </div>
+        <div class="divisionTriangle"></div>
+
+        <div id="zoneCorps2">
+            <div class="contenuDeuxParties">
+                <div class="contenuPartieGauche">
+                    <div id="titreCorps2">
+                        Préservez-vous du chaos
+                    </div>
+                </div>
+                <div class="contenuPartieDroite">
+                    <div id="descriptionCorps2">
+                        <p>Dans notre ère où la transformation numérique se renouvelle sans cesse, le volume de données gérées évolue de facon exponentielle et change les objectifs des organisations. 
+                        Cela induit une demande en hausse d'expériences-clients dirigées par les données et de plus en plus d'exigences de la part des clients. </p>
+                        <p>Cependant, les entreprises ont de plus en plus de mal à adopter un système efficace prennant en compte ces évolutions perpétuelles, ce qui amoindri grandement leurs performances.</p>
+                        <p>En effet, la plupart d'entre-elles, autoproclamées "axées autour de la gestion en masse de données", ne font pourtant qu'effleurer la surface en termes d'exploitation du potentiel de cette incroyable ressource.</p>
+                        <p>Pilot'in permet de remédier à celà, en proposant aux organisations de passer d'une vision fragmentée à une vision globale de l'exploitation des données, et d'appronfondir ensemble leur stratégie.</p>
+                    </div>
+                    <button class="boutonFleche">Découvrez notre vision
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <img id="parallaxe1" src="img/parallaxe-shapes-duo-colors.svg" alt="parallaxe numéro 1">
+        </div>
+
+        <div id="zoneIntervalleCorps2et3">
+            <div id="partieBlanche"></div>
+            <img id="imgSeparationCorps2et3" src="img/computer-screen-data-score-analyst.png" alt="img data analyse">
+            <div id="partieBleue"></div>
+        </div>
+
+        <div id="zoneCorps3">
+            <div id="titreCorps3">Comment relevons-nous ces <div class="autreCouleur">défis</div> ?</div>
+            <div class="contenuDeuxParties contenuCorps3">
+                <div class="contenuPartieGauche">
+                    <img id="imgUsineDonnees" src="img/datafactory/SVG/Datafactory-v3.svg" alt="illustration datafactory">
+                </div>
+                <div class="contenuPartieDroite">
+                    <div class="titreContenuCorps3">
+                        <img class="imgGraphique" src="img/chart-line-up.svg" alt="logo graphique">
+                        Usine de données
+                    </div>
+                    <div class="descriptionCorps3">
+                        Créez votre nouvelle plateforme d'automatisation de stockage de données grâce à l'approche unique low-code/no-code.
+                        Accélérez votre activité dès aujourd'hui et générez de la plus-value grâce à vos données !
+                    </div>
+                    <div class="rubriquesCorps3">
+                        <div class="rubrique" onclick="changerImgUsineDonnees(1)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/file-alt.svg" alt="icone fichier">
+                            </div>
+                            Diriger et orchestrer
+                        </div>
+                        <div class="rubrique" onclick="changerImgUsineDonnees(2)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/lock-alt.svg" alt="icone cadenas">
+                            </div>
+                            Répartir l'alimentation
+                        </div>
+                        <div class="rubrique" onclick="changerImgUsineDonnees(3)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/pie-alt.svg" alt="icone diagramme">
+                            </div>
+                            Exploiter les informations
+                        </div>
+                        <div class="rubrique" onclick="changerImgUsineDonnees(1)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/file-alt.svg" alt="icone fichier">
+                            </div>
+                            Diriger et orchestrer
+                        </div>
+                    </div>
+                    <button class="boutonRouge boutonFleche">Découvrir la solution 
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="contenuDeuxParties contenuCorps3">
+                <div class="contenuPartieGauche">
+                    <div class="titreContenuCorps3">
+                        <img class="imgGraphique" src="img/diagram-project.svg" alt="logo diagramme">
+                        ProPilot
+                    </div>
+                    <div class="descriptionCorps3">
+                        Planifiez, réalisez et alignez tous vos plans stratégiques sur une seule plateforme conçue pour rendre les organisations modernes et efficaces.
+                        Fini les feuilles de calcul envoyées par e-mail ou le temps perdu inutilement, vous pourrez désormais vous concentrez sur vos véritables objectifs !
+                    </div>
+                    <div class="rubriquesCorps3">
+                        <div class="rubrique" onclick="changerImgPropilot(1)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/file-alt1.svg" alt="bouton fichier">
+                            </div>
+                            Connecter les plans stratégiques
+                        </div>
+                        <div class="rubrique" onclick="changerImgPropilot(2)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/file-alt2.svg" alt="bouton fichier">
+                            </div>
+                            Connaître le statut des plans
+                        </div>
+                        <div class="rubrique" onclick="changerImgPropilot(3)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/file-alt3.svg" alt="bouton fichier">
+                            </div>
+                            S'adapter rapidement aux changements
+                        </div>
+                        <div class="rubrique" onclick="changerImgPropilot(4)">
+                            <div class="boutonRubriqueCorps3">
+                                <img class="imgBoutonRubriqueCorps3" src="img/file-alt4.svg" alt="bouton fichier">
+                            </div>
+                            Récompenser la performance
+                        </div>
+                    </div>
+                    <button class="boutonRouge boutonFleche">En savoir plus sur ProPilot
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div id="fondCorps3" class="contenuPartieDroite">
+                    <img id="imgPropilot" src="img/screen-simulation.svg" alt="illustration Propilot">
+                </div>
+            </div>
+        </div>
+        <div class="divisionTriangle"></div>
+
+        <div id="zoneCorps4">
+            <div id="titreCorps4">
+                Ils font confiance à Pilot'in,<br>
+                <div id="miniTitreCorps4">Pourquoi pas vous ?</div>
+            </div>
+            <div class="contenuDeuxParties">
+                <div class="contenuPartieGauche">
+                    <div id="imgCarrousselClients">
+                        <button id="boutonCarrousselClients">
+                            <i class="fa fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="contenuPartieDroite">
+                    <img id="logoClient" src="img/EXKi-2.png" alt="logo du client">
+                    <div id="nomClient">Thierry Soubestre</div>
+                    <div id="declarationClient">En quelques semaines, 5 sources de données rentables ont été ajoutées et nous bénéficions désormais d'informations en continu.</div>
+                    <div id="zoneBoutonsCarroussel">
+                        <button class="navigCarroussel" onclick="passerClientPrecedent()">
+                            <i class="fa fa-arrow-left"></i>
+                        </button>
+                        <button class="navigCarroussel" onclick="passerClientSuivant()">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div id="zonePointsCarroussel">
+                        <div id="pointRepere1" class="pointRepereCarroussel pointActif" onclick="changerClientCarroussel(1)"></div>
+                        <div id="pointRepere2" class="pointRepereCarroussel" onclick="changerClientCarroussel(2)"></div>
+                        <div id="pointRepere3" class="pointRepereCarroussel" onclick="changerClientCarroussel(3)"></div>
+                        <div id="pointRepere4" class="pointRepereCarroussel pointInactif"></div>
+                        <div id="pointRepere5" class="pointRepereCarroussel pointInactif"></div>
+                    </div>
+                </div>
+            </div>
+            <img id="parallaxe2" src="img/parallaxe-shapes-blue-down.svg" alt="parallaxe numéro 2">
+        </div>
+
+        <div id="zoneCorps5">
+            <div id="titreCorps5">Nos articles de blog</div>
+            <div id="descriptionCorps5">
+                Retrouvez toutes nos dernières infos, évènements, offres d'emploi et actualités du moment, cela vous permettra d'apprendre à mieux nous connaître, et qui sait, marquera peut-être le début d'une grande aventure commune !
+            </div>
+            <div id="zoneArticlesBlog">
+                <div class="articleBlog">
+                    <div class="categorieArticle">Pratique</div>
+                    <div class="titreArticle">Qu'est ce qu'un Data Warehouse et comment l'utiliser de manière efficace dans vos stratégies ?</div>
+                    <div class="contenuArticle">Le terme "Data Warehouse" désigne une base de données hébergée sur un serveur dans un Data Center ou dans le Cloud, qui recueille des données de sources variées dans le but de soutenir l'analyse et de faciliter le processus de prise de décision. Cet élément peut, s'il est bien exploité, améliorer considérablement les performances de votre activité, et donc constituer un bénéfice important.</div>
+                    <div class="zoneAuteurArticle">
+                        <img class="photoAuteur" src="img/placeholder-team-01.png" alt="photo de l'auteur de cet article">
+                        <div class="identiteAuteur">Guillaume Parchet, Architecte de Bases de Données</div>
+                        <button class="boutonArticle">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="articleBlog">
+                    <div class="categorieArticle">Emploi</div>
+                    <div class="titreArticle">Pilot'In est à la recherche de son futur développeur Front-End !</div>
+                    <div class="contenuArticle">Vous maîtrisez HTML, CSS et Javascript sur le bout des doigts et désirez vous investir à nos côtés dans des projets variés ? N'hésitez plus, faites nous parvenir votre plus belle candidature (CV et lettre de motivation). Un test technique rapide puis un entretien de motivation nous permettrons  vérifier que vos compétences matchent bien avec nos missions potentielles.</div>
+                    <div class="zoneAuteurArticle">
+                        <img class="photoAuteur" src="img/placeholder-team-03.png" alt="photo de l'auteur de cet article">
+                        <div class="identiteAuteur">Hervé Perrec, Directeur des Ressources Humaines</div>
+                        <button class="boutonArticle">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="articleBlog">
+                    <div class="categorieArticle">Evènement</div>
+                    <div class="titreArticle">Venez nombreux à notre webinaire "les meilleures sources et techniques pour obtenir des leads BtoB".</div>
+                    <div class="contenuArticle">Durant ce webinaire qui aura lieu le 4 juillet 2023, nous vous présenterons les outils que nous utilisons au quotidien pour nous aider à élargir notre liste de prospects avec d'autres entreprises qui peuvent se montrer intéréssées par votre activité. La participation est gratuite, donc n'hésitez pas à en parler autour de vous à vos amis, famille ou collègues de travail !</div>
+                    <div class="zoneAuteurArticle">
+                        <img class="photoAuteur" src="img/placeholder-team-02.png" alt="photo de l'auteur de cet article">
+                        <div class="identiteAuteur">Diane Mérilleux, Responsable Marketing</div>
+                        <button class="boutonArticle">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button class="boutonFleche">Tous les articles
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div id="zoneCorps6">
+            <div class="contenuDeuxParties">
+                <div class="contenuPartieGauche">
+                    <img id="illustrationCorps6" src="img/illustration-cta@2x.png" alt="illustration corps 6">
+                </div>
+                <div class="contenuPartieDroite">
+                    <div id="titreCorps6">Alors, prêts à rencontrer le futur de votre organisation ?</div>
+                    <div id="descriptionCorps6">Entamez votre transformation dès maintenant !</div>
+                    <button class="boutonRouge boutonFleche">Réserver un rdv
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="zoneCorps7">
+            <div id="zoneColonnes">
+                <div class="colonneCorps7">
+                    <div class="titreColonne">Nous sommes à votre disposition</div>
+                    <div class="rubriqueColonne">A propos de nous</div>
+                    <div class="rubriqueColonne">Rejoignez-nous</div>
+                    <div class="rubriqueColonne">Contactez-nous</div>
+                </div>
+                <div class="colonneCorps7">
+                    <div class="titreColonne">En Belgique</div>
+                    <div class="rubriqueColonne rubriqueAdresse">72 Rue du Court-Bouillon, 1040 Etterbeek, Bruxelles</div>
+                    <div class="rubriqueColonne">07 85 47 904</div>
+                </div>
+                <div class="colonneCorps7">
+                    <div class="titreColonne">En France</div>
+                    <div class="rubriqueColonne rubriqueAdresse">45 Rue des Lilas, 75003 Paris</div>
+                    <div class="rubriqueColonne">07 32 50 106</div>
+                </div>
+                <div class="colonneCorps7">
+                    <div class="titreColonne">Suivez-nous sur les réseaux sociaux</div>
+                    <div class="zoneReseauxSociaux">
+                        <button class="boutonReseauxSociaux">
+                            <i class="fa-brands fa-twitter"></i>
+                        </button>
+                        <button class="boutonReseauxSociaux">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="basSite">
+            <div id="mentionsCookies">Pilot'in 2022 - <a class="lienBasSite">CGV</a> - <a class="lienBasSite">Cookies</a> - <a class="lienBasSite">Mentions légales</a></div>
+            <div id="createur">Développé par Louis Cauvet</div>
+        </div>
+        <footer>
+            <a id="retourPortfolio" href="../..">Cliquez sur ce lien pour revenir à mon portfolio</a>
+        </footer>
+        <script src="homePage_script.js"></script>
+        <noscript>Désolé, votre navigateur ne prend pas en charge le Javascript</noscript>
+    </body>
+</html>

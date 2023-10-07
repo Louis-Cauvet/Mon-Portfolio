@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Mon portfolio | Louis Cauvet</title>
+    <link rel="stylesheet" type="text/css" href="portfolio_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML,CSS,JS,portfolio">
+    <meta name="description"
+        content="Projet consistant en la réalisation d'un portfolio personnel, en HTML, CSS et Javascript">
+    <meta name="author" content="Louis Cauvet">
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="img/logo_LouisCauvet.png" alt="Logo Louis Cauvet">
+        <button id="boutonBurger" onclick="afficheMenu()">
+            <span id="burger" class="iconeBurger switchCouleurFond"></span>
+        </button>
+    </header>
+
+    <section id="sectionPresentation">
+        <h1>Bienvenue sur mon portfolio !</h1>
+        <p>Je suis <span class="switchCouleur policeGeorgia typing"></span></p>
+        <picture>
+            <source srcset="img/photoBlanc.png" alt="Photo de moi en chemise blanche" media="(min-width: 426px)" />
+            <img src="img/photoBlanc_mobile.png" alt="Photo de moi en chemise blanche">
+            <button class="infobulle">
+            </button>
+        </picture>
+        <p>Désireux d'accumuler de l'expérience comme des compétences techniques variées, j'aspire à
+            devenir un développeur Front-End digne de confance afin de m'épanouir à travers de nombreux projets.
+        </p>
+        <h2>En quelques infos</h2>
+        <ul>
+            <li>
+                <h3>Age :</h3>
+                <p>21 ans</p>
+            </li>
+            <li>
+                <h3>Localisation :</h3>
+                <p>69003, Lyon 3ème</p>
+            </li>
+            <li>
+                <h3>Niveau d'études :</h3>
+                <p>Bac +3 en cours</p>
+            </li>
+            <li>
+                <h3>Entreprise actuelle :</h3>
+                <p>Acti</p>
+            </li>
+            <li>
+                <h3>Contrat actuel :</h3>
+                <p>Contrat d'apprentissage</p>
+            </li>
+            <li>
+                <h3>Emission préférée :</h3>
+                <p>L'amour est dans le pré &#x1F331;</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="sectionParcours">
+        <h1>Mon parcours</h1>
+        <div id="blocOngletsTitre">
+            <button id="boutonExperiences" onclick="afficherSlider('experiences')">Mes expériences</button>
+            <button id="boutonFormation" onclick="afficherSlider('formation')" class="inactive">Ma formation</button>
+        </div>
+        <div id="blocOngletsSlider">
+            <div id="accordeonExperiences" class="blocAccordeon">
+                <details>
+                    <summary>Développeur Back-End Wordpress/PHP chez <a href="https://www.acti.fr/"
+                            class="switchCouleur">Acti</a> (69007 Lyon)<div class="datesParcours">Septembre 2023 -
+                            Août 2024</div>
+                    </summary>
+                    <p><b>Contrat d'apprentissage en parallèle de ma 3ème année de Bachelor Ingénierie du
+                            Web.</b><br>
+                        - Maintenance de différents sites clients (Mise à jour de
+                        versions PHP/plugins Wordpress, améliorations selon les besoins du client...)
+                    </p>
+                </details>
+                <details>
+                    <summary>Développeur-Testeur chez <a href="https://geolys.io/" class="switchCouleur">Tevolys</a>
+                        (21000 Dijon)<div class="datesParcours">Avril 2022 -
+                            Juin 2022</div>
+                    </summary>
+                    <p><b>Stage de fin de deuxième année de DUT Informatique</b><br>
+                        - Gestion de tickets-clients (en interaction directe avec eux)<br>
+                        - Mise en place et comparaison de solutions domotiques ("bridges")
+                    </p>
+                </details>
+            </div>
+            <div id="accordeonFormation" class="blocAccordeon">
+                <details>
+                    <summary>3<sup>ème</sup> année de Bachelor ingénierie du Web (en alternance) |
+                        <a href="https://www.esgi.fr/" class="switchCouleur">ESGI</a>, 69003 Lyon
+                        <div class="datesParcours">Septembre 2023 - Août 2024</div>
+                    </summary>
+                    <p>Cette formation est destinée à me spécialiser en développement web, par l'étude et la mise en
+                        pratique de différents langages et frameworks. De plus, l'alternance me permet d'être confronté
+                        à la réalité du terrain, pour une transition école/monde du travail moins brutale.
+                    </p>
+                </details>
+                <details>
+                    <summary>3<sup>ème</sup> année de Licence Informatique | Université de Bourgogne, 21000 Dijon
+                        <div class="datesParcours">Septembre 2022 - Décembre 2022</div>
+                    </summary>
+                    <p>Hésitant encore sur mon choix de spécialisation, je poursuis mon cursus à la fac. Expérience
+                        non concluante, leur programme est en retard sur celui du DUT donc on ne progresse pas, et le
+                        développement web (absent des matières) me manque énormément. Je décide donc d'arrêtre la
+                        formation assez tôt dans l'année pour trouver une école qui saura m'accompagner dans ma
+                        spécialisation.
+                    </p>
+                </details>
+                <details>
+                    <summary>DUT Informatique | IUT de Dijon, 21000 Dijon
+                        <div class="datesParcours">Septembre 2020 - Juin 2022</div>
+                    </summary>
+                    <p>Cette formation généraliste me fait découvrir et mettre en application les bases de chaque
+                        domaine (développement, bases de données, cybersécurité, réseaux...) à travers
+                        différents projets. Elle me permet également de connaître ma première expérience professionnelle
+                        (stage de 3 mois) qui suscite en moi de la curiosité envers le domaine du développement,
+                        cependant sans certitudes.
+                    </p>
+                </details>
+                <details>
+                    <summary>Baccalauréat Scientifique | Lycée Montchapet, 21000 Dijon
+                        <div class="datesParcours">Septembre 2020 - Juin 2022</div>
+                    </summary>
+                    <p>Durant mes années de lycée, je choisis par curiosité de prendre l'option "Informatique et
+                        Création Numérique", qui me fait découvrir les bases du Web (HTML, CSS) ainsi que du
+                        développement orienté-objet (Python). Ce choix éveille chez moi un intérêt pour
+                        l'informatique, car j'adhère alors immédiatement à la logique que cela nécéssite et aux
+                        nombreuses possibilités de spécialisations professionnelles. <br> Suite à la crise du Covid-19
+                        et du confinement, j'obtiens mon Baccalauréat avec la mention "Très Bien" au contrôle continu,
+                        preuve de ma régularité et de mon investissement quotidien.
+                    </p>
+                </details>
+            </div>
+        </div>
+        <h2>Mes compétences</h2>
+        <h3>Front</h3>
+        <ul>
+            <li><img src="img/logo_HTML.png" alt="logo HTML">HTML</li>
+            <li><img src="img/logo_CSS.png" alt="logo CSS">CSS</li>
+            <li><img src="img/logo_JS.png" alt="logo Vanilla JS">Vanilla JS</li>
+            <li><img src="img/logo_Bootstrap.png" alt="logo Bootstrap">Bootstrap</li>
+        </ul>
+        <h3>Back</h3>
+        <ul>
+            <li><img src="img/logo_PHP.png" alt="logo PHP">PHP</li>
+            <li><img src="img/logo_CSharp.png" alt="logo C#">C#</li>
+        </ul>
+        <h3>Autres</h3>
+        <ul>
+            <li><img src="img/logo_Wordpress.png" alt="logo Wordpress">Wordpress</li>
+            <li><img src="img/logo_SQL.png" alt="logo SQL">SQL</li>
+            <li><img src="img/logo_XML.png" alt="logo XML">XML/DTD</li>
+            <li><img src="img/logo_UML.png" alt="logo UML">UML</li>
+        </ul>
+    </section>
+
+    <section id="sectionProjets">
+        <h1>Mes projets</h1>
+        <div id="carousselProjets">
+            <button onclick="afficherProjetPrecedent()"
+                class="fa-sharp fa-light fa-greater-than fa-rotate-180"></button>
+            <a href="projets/Pokedex/pokedex.html" id="lienProjet" class="switchCouleur">Essayer le projet</a>
+            <button onclick="afficherProjetSuivant()" class="fa-sharp fa-light fa-greater-than"></button>
+            <ul>
+                <li onclick="changerProjetCaroussel(1)" id="navigProjet1" class="projetActif"></li>
+                <li onclick="changerProjetCaroussel(2)" id="navigProjet2"></li>
+                <li onclick="changerProjetCaroussel(3)" id="navigProjet3"></li>
+                <li onclick="changerProjetCaroussel(4)" id="navigProjet4"></li>
+                <li onclick="changerProjetCaroussel(5)" id="navigProjet5"></li>
+                <li onclick="changerProjetCaroussel(6)" id="navigProjet6"></li>
+            </ul>
+        </div>
+        <h2 id="titreProjet"></h2>
+        <p id="descriptionProjet"></p>
+        <h3>
+            Retrouvez l'intégralité de mes projets : <a href="https://github.com/Louis-Cauvet"
+                class="fa-brands fa-github"></a>
+        </h3>
+    </section>
+
+    <section id="sectionContact">
+        <h1>Me contacter</h1>
+        <ul>
+            <li>
+                <a href="tel:0782756498" class="fa fa-phone"></a>
+            </li>
+            <li>
+                <a href="mailto:louiscauvet8@gmail.com" class="fa fa-at"></a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/louis-cauvet/" class="fa fa-brands fa-linkedin"></a>
+            </li>
+        </ul>
+        <p>Je suis a votre entière disposition, alors n'hésitez pas !</p>
+    </section>
+
+    <section id="sectionQuestion">
+        <p>if("Vous avez tout lu"){<br>
+            <span>write("Test : Quelle est mon émission préférée ? 😉")</span><br>
+            } else {<br>
+            <span>write("Rien de grave, <a href="cv/CV_CAUVET_Louis.pdf" download="CV Louis Cauvet"
+                    class="switchCouleur">mon CV</a> pourra tout vous résumer !")
+            </span><br>
+            }
+        </p>
+    </section>
+
+    <footer>
+        2023 &copy; Louis Cauvet | Hébergé avec <a class="switchCouleur" href="https://uniheberg.fr/">UniHeberg</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+        referrerpolicy="no-referrer"></script>
+    <script src="portfolio_script.js"></script>
+    <noscript>Désolé, votre navigateur ne prend pas en charge le Javascript...</noscript>
+</body>
+
+</html>
