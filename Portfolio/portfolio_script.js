@@ -10,22 +10,6 @@ window.addEventListener("resize", () => {
   calibrerAffichageSlider("Experiences");
 });
 
-window.addEventListener("scroll", () => {
-  let scrollPage = window.scrollY;
-
-  // let header = document.getElementsByTagName("nav")[0];
-  // if (scrollPage != 0) {
-  //   header.style.backdropFilter = "blur(10px)  brightness(85%)";
-  // } else {
-  //   header.style.backdropFilter = "";
-  // }
-});
-
-function afficheMenu() {
-  let iconeBurger = document.getElementById("burger");
-  iconeBurger.classList.toggle("active");
-}
-
 // on indique les différentes chaines de caractères qui se relaient lors de l'animation du "typing", ainsi que la vitesse
 var policeTape = new Typed(".typing", {
   strings: ["étudiant en développement web", "alternant dans une agence web", "ravi de vous voir ici !"],
@@ -33,6 +17,59 @@ var policeTape = new Typed(".typing", {
   BackSpeed: 100,
   loop: true,
 });
+
+const listeBoutonsNavigation = document.getElementsByClassName("boutonNavigation");
+for (let i = 0; i < listeBoutonsNavigation.length; i++) {
+  listeBoutonsNavigation[i].addEventListener("click", () => {
+    afficherMenu();
+  });
+}
+
+function afficherMenu() {
+  const iconeBurger = document.getElementById("burger");
+  iconeBurger.classList.toggle("active");
+
+  const menuNavig = document.getElementsByTagName("nav")[0];
+  if (iconeBurger.classList.contains("active")) {
+    menuNavig.style.transform = "translateY(100vh)";
+  } else {
+    menuNavig.style.transform = "translateY(0)";
+  }
+}
+
+function changerLuminosite(boutonJourNuit) {
+  boutonJourNuit.classList.toggle("fa-moon");
+  boutonJourNuit.classList.toggle("fa-sun");
+
+  const baliseHtml = document.getElementsByTagName("html")[0];
+  baliseHtml.classList.toggle("nuit");
+
+  if (baliseHtml.classList.contains("nuit")) {
+    document.getElementById("logo").src = "img/LouisCauvet_LogoBlanc.png";
+    document.getElementById("photoMobile").src = "img/photoNoir_mobile.png";
+  } else {
+    document.getElementById("logo").src = "img/LouisCauvet_LogoNoir.png";
+    document.getElementById("photoMobile").src = "img/photoBlanc_mobile.png";
+  }
+}
+
+function afficherPalette() {
+  const paletteCouleurs = document.getElementById("menuChoixCouleur");
+  paletteCouleurs.classList.toggle("active");
+}
+
+function changerCouleur(idBouton) {
+  const boutonCouleurActive = document.getElementsByClassName("fa-check")[0];
+  boutonCouleurActive.classList.remove("fa");
+  boutonCouleurActive.classList.remove("fa-check");
+
+  const boutonClique = document.getElementById(idBouton);
+  const racine = document.querySelector(":root");
+  racine.style.setProperty("--couleurVariable", boutonClique.style.backgroundColor);
+
+  boutonClique.classList.add("fa");
+  boutonClique.classList.add("fa-check");
+}
 
 function afficherSlider(rubriqueVoulue) {
   const slider = document.getElementById("blocOngletsSlider");
@@ -111,7 +148,7 @@ function changerProjetCaroussel(indiceBouton) {
       zoneCaroussel.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('img/capturesProjets/ListeTaches.png')";
       lienProjet.style.display = "block";
       lienProjet.href = "projets/ListeTaches/index.php";
-      titreCaroussel.innerHTML = "Liste de tâches personnelle";
+      titreCaroussel.innerHTML = "Liste de tâches (avec connexion)";
       descriptionCaroussel.innerHTML = "Ce projet m'a permis de mettre en application la connexion et l'exploitation d'une base de données, ainsi que l'affichage dynamique via PHP des informations concernant uniquement l'utilisateur connecté.";
       break;
     case 3:

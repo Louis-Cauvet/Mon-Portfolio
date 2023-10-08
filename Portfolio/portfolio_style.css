@@ -48,18 +48,36 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0px;
   padding: 10px 0;
   box-sizing: border-box;
   width: 100%;
   background-color: var(--theme_fondSecondaire);
   border-bottom: var(--bordure);
   z-index: 4;
+}
+
+nav {
+  position: fixed;
+  top: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: -100vh;
+  padding: 75px 0;
+  height: calc(100vh - 75px);
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--theme_fond);
+  transition: transform 0.3s linear;
+  z-index: 3;
 }
 
 h1 {
@@ -92,6 +110,7 @@ a {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 /**************************************
@@ -100,12 +119,12 @@ ul {
 
 .switchCouleur {
   color: var(--couleurVariable) !important;
-  transition: all 0.5s linear;
+  transition: color 0.5s linear;
 }
 
 .switchCouleurFond {
   background-color: var(--couleurVariable) !important;
-  transition: all 0.5s linear;
+  transition: background-color 0.5s linear;
 }
 
 .policeGeorgia {
@@ -195,6 +214,93 @@ ul {
   transform: translateY(-10.5px) rotateZ(-45deg);
 }
 
+nav ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 60%;
+  width: 100%;
+  text-align: center;
+}
+
+.boutonNavigation {
+  color: var(--theme_fondOpposé);
+}
+
+nav ul:nth-child(2) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 15px;
+  height: 20%;
+  width: 90%;
+}
+
+nav button {
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  color: var(--theme_fondOpposé);
+  background-color: var(--theme_fondSecondaire);
+  border: var(--bordure);
+  border-radius: 10px;
+}
+
+#menuChoixCouleur {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% - 70px);
+  height: 100%;
+  text-align: center;
+  background-color: var(--theme_fondSecondaire);
+  border: var(--bordure);
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: visilibity 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+#menuChoixCouleur.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menuChoixCouleur p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+#menuChoixCouleur ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 5px;
+  width: auto;
+  height: auto;
+}
+
+#menuChoixCouleur li {
+  width: 25px;
+  height: 25px;
+}
+
+.boutonPalette {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: var(--theme_fondSecondaire);
+  vertical-align: top;
+  border: none;
+  border-radius: 50%;
+}
+
 /**************************************
 * Elements de la 1ère section (de présentation)
 **************************************/
@@ -209,12 +315,12 @@ ul {
   position: relative;
   display: block;
   margin: 0 auto;
-  height: 180px;
+  height: auto;
   max-width: 240px;
 }
 
 #sectionPresentation picture img {
-  max-width: 180px;
+  width: 180px;
   height: auto;
   border-radius: 50%;
 }
@@ -288,6 +394,7 @@ ul {
   font-family: var(--policePrincipale);
   font-size: 5vw;
   font-weight: bold;
+  color: var(--theme_fondOpposé);
   height: 40px;
   background-color: transparent;
   transition: opacity 0.5s linear;
@@ -336,7 +443,7 @@ ul {
   min-width: 280px;
   background-color: var(--theme_fondSecondaire);
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(76, 76, 76, 0.4);
+  box-shadow: 0 2px 10px rgb(74, 74, 74, 0.4);
   cursor: pointer;
 }
 
@@ -406,7 +513,6 @@ ul {
   height: 35px;
   border-radius: 50%;
   border: var(--bordure);
-  box-shadow: 3px 3px 10px grey;
 }
 
 /**************************************
@@ -435,9 +541,10 @@ ul {
 #carousselProjets a {
   padding: 10px 12px;
   font-family: var(--policeSecondaire);
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--theme_fondOpposé);
   background-color: var(--theme_fondSecondaire);
-  border: 2px solid var(--couleurVariable);
   border-radius: 30px;
 }
 
@@ -445,7 +552,7 @@ ul {
   position: absolute;
   top: 38%;
   font-size: 58px;
-  color: var(--theme_fondSecondaire);
+  color: var(--couleurSecondaireClair);
   opacity: 0.95;
   background-color: transparent;
   border: none;
@@ -467,13 +574,12 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  padding-left: 0;
 }
 
 #carousselProjets li {
   width: 17px;
   height: 8px;
-  background-color: var(--theme_fondSecondaire);
+  background-color: var(--couleurSecondaireClair);
   border: var(--bordure);
   border-radius: 50px;
   transition: all 0.25s linear;
@@ -534,7 +640,6 @@ ul {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding-left: 0;
 }
 
 #sectionContact .fa {
