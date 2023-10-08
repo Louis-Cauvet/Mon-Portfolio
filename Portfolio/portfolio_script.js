@@ -6,9 +6,6 @@ let compteurImgCarroussel = 1;
 changerProjetCaroussel(compteurImgCarroussel);
 
 calibrerAffichageSlider("Experiences");
-window.addEventListener("resize", () => {
-  calibrerAffichageSlider("Experiences");
-});
 
 // on indique les différentes chaines de caractères qui se relaient lors de l'animation du "typing", ainsi que la vitesse
 var policeTape = new Typed(".typing", {

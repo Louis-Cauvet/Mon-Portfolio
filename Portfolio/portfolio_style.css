@@ -26,7 +26,6 @@ html {
   --theme_fondOpposé: var(--couleurEcritureClair);
   --bordure: 2px solid var(--couleurBordureClair);
   overflow-x: hidden;
-  /* --bordure: 1px solid #b9c5c7; */
 }
 
 html.nuit {
@@ -34,7 +33,6 @@ html.nuit {
   --theme_fondSecondaire: var(--couleurSecondaireSombre);
   --theme_fondOpposé: var(--couleurEcritureSombre);
   --bordure: 2px solid var(--couleurBordureSombre);
-  /* --bordure: 1px solid #434141; */
 }
 
 body {
@@ -252,9 +250,9 @@ nav button {
 
 #menuChoixCouleur {
   position: absolute;
-  left: 0;
   top: 0;
-  width: calc(100% - 70px);
+  right: 70px;
+  max-width: 230px;
   height: 100%;
   text-align: center;
   background-color: var(--theme_fondSecondaire);
@@ -341,18 +339,20 @@ nav button {
 #sectionPresentation ul {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
   column-gap: 20px;
   row-gap: 15px;
   flex-wrap: wrap;
   padding: 0;
   text-align: start;
+  transition: column-gap 0.3s linear;
 }
 
 #sectionPresentation li {
   width: 130px;
   height: 60px;
+  transition: width 0.3s linear;
 }
 
 #sectionPresentation li h3 {
@@ -513,6 +513,7 @@ nav button {
   height: 35px;
   border-radius: 50%;
   border: var(--bordure);
+  transition: width 0.3s linear, height 0.3s linear;
 }
 
 /**************************************
@@ -683,6 +684,55 @@ footer {
   text-align: center;
   background-color: var(--theme_fondSecondaire);
   border-top: var(--bordure);
+  transition: font-size 0.3s linear;
+}
+
+/**************************************
+* Format Telephone moyen
+**************************************/
+@media only screen and (min-width: 321px) {
+  #sectionParcours li img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/**************************************
+* Format Telephone grand
+**************************************/
+@media only screen and (min-width: 376px) {
+  #sectionPresentation {
+    padding: 20px 30px;
+  }
+
+  #sectionPresentation ul {
+    column-gap: 20px;
+  }
+
+  #sectionPresentation li {
+    width: 140px;
+  }
+
+  #blocOngletsTitre > button {
+    font-size: 18px;
+  }
+
+  .blocAccordeon details {
+    max-width: 338px;
+  }
+
+  #sectionProjets {
+    padding: 20px 25px;
+  }
+
+  #sectionQuestion {
+    margin: 30px 15px;
+    padding: 5px 15px;
+  }
+
+  footer {
+    font-size: 16px;
+  }
 }
 
 /**************************************
@@ -691,10 +741,6 @@ footer {
 @media only screen and (min-width: 426px) {
   .infobulle {
     display: block;
-  }
-
-  #blocOngletsParcours > button {
-    font-size: 18px;
   }
 }
 
