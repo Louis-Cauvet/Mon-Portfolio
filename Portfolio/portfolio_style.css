@@ -25,6 +25,7 @@ html {
   --theme_fondSecondaire: var(--couleurSecondaireClair);
   --theme_fondOpposé: var(--couleurEcritureClair);
   --bordure: 2px solid var(--couleurBordureClair);
+  --photo: url("img/photoBlanc_mobile.png");
   overflow-x: hidden;
 }
 
@@ -33,6 +34,7 @@ html.nuit {
   --theme_fondSecondaire: var(--couleurSecondaireSombre);
   --theme_fondOpposé: var(--couleurEcritureSombre);
   --bordure: 2px solid var(--couleurBordureSombre);
+  --photo: url("img/photoNoir_mobile.png");
 }
 
 body {
@@ -61,21 +63,15 @@ header {
 }
 
 nav {
-  position: fixed;
-  top: 0%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  position: absolute;
+  top: 78px;
   margin-top: -100vh;
-  padding: 75px 0;
-  height: calc(100vh - 75px);
   width: 100%;
+  height: calc(100vh - 78px);
+  background-color: var(--theme_fond);
   font-size: 20px;
   font-weight: bold;
-  background-color: var(--theme_fond);
-  transition: transform 0.3s linear;
-  z-index: 3;
+  transition: transform 0.5s ease-in-out;
 }
 
 h1 {
@@ -84,10 +80,12 @@ h1 {
   margin-right: auto;
   font-size: 22px;
   width: fit-content;
+  transition: font-size 0.5s linear;
 }
 
 h2 {
   font-size: 17px;
+  transition: font-size 0.5s linear;
 }
 
 h3 {
@@ -148,6 +146,18 @@ ul {
   width: 90px;
   height: 90px;
   animation: none;
+}
+
+.tooltip {
+  position: absolute;
+  display: none;
+  padding: 10px;
+  background-color: var(--theme_fondOpposé);
+  font-family: var(--policeSecondaire);
+  font-size: 14px;
+  color: var(--theme_fondSecondaire);
+  border: var(--bordure);
+  border-radius: 10px;
 }
 
 /**************************************
@@ -217,8 +227,8 @@ nav ul:nth-child(1) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  height: 60%;
+  gap: 60px;
+  margin: 60px 0;
   width: 100%;
   text-align: center;
 }
@@ -228,17 +238,27 @@ nav ul:nth-child(1) {
 }
 
 nav ul:nth-child(2) {
+  width: 100%;
+}
+
+#sectionOptions {
   position: relative;
+  text-align: end;
+}
+
+#sectionOptions ul {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  margin: 0;
   gap: 15px;
-  height: 20%;
-  width: 90%;
+  width: 95%;
 }
 
-nav button {
+.fa-moon,
+.fa-sun,
+.fa-cog {
   width: 50px;
   height: 50px;
   font-size: 22px;
@@ -251,8 +271,8 @@ nav button {
 #menuChoixCouleur {
   position: absolute;
   top: 0;
-  right: 70px;
-  max-width: 230px;
+  right: 90px;
+  width: 210px;
   height: 100%;
   text-align: center;
   background-color: var(--theme_fondSecondaire);
@@ -323,11 +343,6 @@ nav button {
   border-radius: 50%;
 }
 
-#sectionPresentation .infobulle {
-  bottom: -20px;
-  right: 5px;
-}
-
 #sectionPresentation p {
   text-align: justify;
 }
@@ -364,6 +379,7 @@ nav button {
   padding-bottom: 5px;
   font-size: 13px;
   border-bottom: 2px solid var(--couleurVariable);
+  transition: border-bottom 0.5s linear;
 }
 
 /**************************************
@@ -451,6 +467,7 @@ nav button {
   font-weight: bold;
   font-size: 14px;
   list-style: none;
+  transition: font-size 0.3s linear;
 }
 
 #accordeonExperiences details summary::before {
@@ -479,13 +496,16 @@ nav button {
 
 .blocAccordeon details p {
   margin-bottom: 0;
+  padding: 5px 10px;
   font-size: 13px;
   text-align: justify;
+  transition: font-size 0.3s linear;
 }
 
 #sectionParcours h3 {
   text-align: start;
   margin-bottom: 10px;
+  transition: margin-left 0.3s linear, font-size 0.3s linear;
 }
 
 #sectionParcours ul {
@@ -496,6 +516,12 @@ nav button {
   gap: 20px;
   margin-top: 0;
   padding-left: 0px;
+  overflow-y: scroll;
+  transition: margin-left 0.3s linear;
+}
+
+#sectionParcours ul::-webkit-scrollbar {
+  width: 0px !important;
 }
 
 #sectionParcours li {
@@ -547,6 +573,7 @@ nav button {
   color: var(--theme_fondOpposé);
   background-color: var(--theme_fondSecondaire);
   border-radius: 30px;
+  transition: font-size 0.5s linear;
 }
 
 #carousselProjets button {
@@ -557,6 +584,7 @@ nav button {
   opacity: 0.95;
   background-color: transparent;
   border: none;
+  transition: font-size 0.5s linear;
 }
 
 #carousselProjets button:nth-child(1) {
@@ -606,6 +634,7 @@ nav button {
 #sectionProjets h3 {
   text-align: start;
   font-size: 14px;
+  transition: font-size 0.3s linear;
 }
 
 #sectionProjets p {
@@ -613,6 +642,11 @@ nav button {
   font-size: 14px;
   text-align: justify;
   color: var();
+  transition: font-size 0.5s linear;
+}
+
+#carousselProjets button {
+  font-size: 65px;
 }
 
 .fa-github {
@@ -667,6 +701,7 @@ nav button {
 
 #sectionQuestion p {
   font-size: 14px;
+  transition: font-size 0.3s linear;
 }
 
 #sectionQuestion a {
@@ -715,14 +750,16 @@ footer {
 
   #blocOngletsTitre > button {
     font-size: 18px;
-  }
-
-  .blocAccordeon details {
-    max-width: 338px;
+    transition: font-size 0.5s linear;
   }
 
   #sectionProjets {
     padding: 20px 25px;
+  }
+
+  #sectionContact ul {
+    max-width: 400px;
+    margin: auto;
   }
 
   #sectionQuestion {
@@ -736,11 +773,344 @@ footer {
 }
 
 /**************************************
-* Format Tablette
+* Format Tablette - breakpoints
 **************************************/
 @media only screen and (min-width: 426px) {
+  #boutonBurger {
+    display: none;
+  }
+
+  #logo {
+    margin-left: 10px;
+    max-width: 30px;
+  }
+
+  nav {
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    height: auto;
+    background-color: transparent;
+    transform: none;
+  }
+
+  nav ul:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  nav ul:nth-child(2) {
+    position: absolute;
+    top: 40px;
+    right: -215px;
+    width: auto;
+  }
+
+  #sectionOptions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.5s linear;
+  }
+
+  #sectionOptions:active {
+    transform: translateX(-215px);
+  }
+
+  #sectionOptions ul {
+    width: auto;
+  }
+
+  #menuChoixCouleur {
+    position: initial;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #menuChoixCouleur.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #menuChoixCouleur p {
+    font-size: 16px;
+  }
+
+  #menuChoixCouleur ul {
+    position: initial;
+    padding: 5px 5px 10px;
+  }
+
+  #sectionOptions {
+    text-align: initial;
+  }
+
+  #sectionPresentation li {
+    width: 160px;
+  }
+
+  #blocOngletsTitre > button {
+    font-size: 19px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  #logo {
+    max-width: 40px;
+  }
+
+  nav ul:nth-child(1) {
+    font-size: 16px;
+    gap: 20px;
+    transition: font-size 0.3s linear;
+  }
+
+  #sectionPresentation li h3 {
+    font-size: 15px;
+  }
+
+  #sectionPresentation li p {
+    font-size: 14px;
+  }
+
+  #sectionPresentation li {
+    width: 180px;
+  }
+
+  #blocOngletsTitre {
+    max-width: 530px;
+    margin: auto;
+  }
+
+  .blocAccordeon details summary {
+    font-size: 16px;
+  }
+
+  .blocAccordeon details {
+    max-width: 450px;
+  }
+
+  .blocAccordeon details p {
+    font-size: 14px;
+  }
+
+  #sectionParcours h3 {
+    font-size: 15px;
+    margin-left: 30px;
+  }
+
+  #sectionParcours ul {
+    margin-left: 30px;
+  }
+
+  #sectionProjets {
+    padding: 20px 50px;
+  }
+
+  #sectionProjets h3 {
+    font-size: 15px;
+  }
+
+  #sectionQuestion {
+    margin: 30px 18px;
+    padding: 5px 20px;
+  }
+
+  #sectionQuestion p {
+    font-size: 15px;
+  }
+}
+
+/**************************************
+* Format Tablette
+**************************************/
+@media only screen and (min-width: 650px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  #logo {
+    margin-left: 20px;
+    max-width: 45px;
+  }
+
+  nav ul:nth-child(1) {
+    font-size: 18px;
+    gap: 40px;
+  }
+
+  nav ul:nth-child(2) {
+    top: 460px;
+  }
+
+  #sectionPresentation {
+    position: relative;
+    background-image: var(--photo);
+    background-size: 220px;
+    background-repeat: no-repeat;
+    background-position: top 25px right;
+  }
+
+  #sectionPresentation > h1,
+  h1 + p,
+  picture + p {
+    width: calc(100% - 225px);
+  }
+
+  #sectionPresentation h1 {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  #sectionPresentation h1 + p {
+    height: auto;
+  }
+
+  #sectionPresentation picture + p {
+    height: 80px;
+  }
+
+  #sectionPresentation picture {
+    display: none;
+  }
+
+  #sectionPresentation h2 {
+    margin-top: 60px;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  #sectionParcours {
+    padding: 20px 45px;
+  }
+
+  #blocOngletsTitre {
+    max-width: 640px;
+  }
+
+  #blocOngletsTitre > button {
+    font-size: 20px;
+  }
+
+  #blocOngletsSlider {
+    gap: 25px;
+  }
+
+  .blocAccordeon {
+    padding: 0;
+    margin-top: 10px;
+    margin-left: -25px;
+  }
+
+  .blocAccordeon details {
+    width: 80%;
+    max-width: 595px;
+  }
+
+  .datesParcours {
+    margin-top: 5px;
+  }
+
+  .blocAccordeon details p {
+    font-size: 15px;
+  }
+
+  #rubriqueCompetences {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 100px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  #rubriqueCompetences h3 {
+    margin-top: 0;
+  }
+
+  #sectionProjets {
+    padding: 20px 80px;
+  }
+
+  #carousselProjets {
+    min-height: 310px;
+  }
+
+  #carousselProjets a {
+    font-size: 14px;
+  }
+
+  #sectionProjets p {
+    font-size: 15px;
+  }
+
+  #sectionContact {
+    padding: 0 25px;
+  }
+
+  #sectionContact ul {
+    max-width: 600px;
+    margin-bottom: 10px;
+  }
+
+  #sectionContact .fa {
+    font-size: 36px;
+  }
+
+  #sectionContact p {
+    font-size: 16px;
+  }
+
+  #sectionQuestion {
+    margin: 30px auto;
+    padding-right: 0;
+    max-width: 525px;
+  }
+
+  #sectionQuestion p {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
   .infobulle {
     display: block;
+  }
+
+  #sectionPresentation .infobulle {
+    right: 200px;
+    top: 220px;
+  }
+
+  #sectionPresentation .tooltip {
+    right: 310px;
+  }
+
+  #sectionPresentation .tooltip:after {
+    content: "";
+    position: absolute;
+    right: -23.5px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-left-color: var(--theme_fondOpposé);
+    border-width: 12px;
   }
 }
 
@@ -750,7 +1120,6 @@ footer {
 
 @keyframes pulsationInfobulle {
   to {
-    /* box-shadow: 0px 0px 0px 10px var(--theme_fondSecondaire); */
-    box-shadow: 0px 0px 0px 18px rgba(205, 205, 205, 0.03);
+    box-shadow: 0px 0px 0px 18px rgba(130, 129, 129, 0.03);
   }
 }

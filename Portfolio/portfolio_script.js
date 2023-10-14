@@ -15,23 +15,37 @@ var policeTape = new Typed(".typing", {
   loop: true,
 });
 
-const listeBoutonsNavigation = document.getElementsByClassName("boutonNavigation");
-for (let i = 0; i < listeBoutonsNavigation.length; i++) {
-  listeBoutonsNavigation[i].addEventListener("click", () => {
-    afficherMenu();
-  });
-}
-
 function afficherMenu() {
   const iconeBurger = document.getElementById("burger");
   iconeBurger.classList.toggle("active");
 
   const menuNavig = document.getElementsByTagName("nav")[0];
-  if (iconeBurger.classList.contains("active")) {
+  if (iconeBurger.classList.contains("active") && screen.width < 426) {
     menuNavig.style.transform = "translateY(100vh)";
   } else {
     menuNavig.style.transform = "translateY(0)";
   }
+
+  addEventListener("resize", () => {
+    if (screen.width >= 426) {
+      iconeBurger.classList.remove("active");
+      menuNavig.style.transition = "none";
+      menuNavig.style.transform = "translateY(0)";
+    } else {
+      menuNavig.style.transition = "transform 0.5s ease-in-out";
+    }
+  });
+}
+
+const listeBoutonsNavigation = document.getElementsByClassName("boutonNavigation");
+for (let i = 0; i < listeBoutonsNavigation.length; i++) {
+  listeBoutonsNavigation[i].addEventListener("click", () => {
+    afficherMenu();
+    setTimeout(() => {
+      let bonScrollY = window.scrollY - 70;
+      window.scrollTo(window.scrollX, bonScrollY);
+    }, 1);
+  });
 }
 
 function changerLuminosite(boutonJourNuit) {
@@ -44,15 +58,29 @@ function changerLuminosite(boutonJourNuit) {
   if (baliseHtml.classList.contains("nuit")) {
     document.getElementById("logo").src = "img/LouisCauvet_LogoBlanc.png";
     document.getElementById("photoMobile").src = "img/photoNoir_mobile.png";
+    document.getElementById("sectionPresentation").style.backgroundImage = "img/photoNoir_ordi.png";
   } else {
     document.getElementById("logo").src = "img/LouisCauvet_LogoNoir.png";
     document.getElementById("photoMobile").src = "img/photoBlanc_mobile.png";
+    document.getElementById("sectionPresentation").style.backgroundImage = "img/photoBlanc_ordi.jpg";
   }
 }
 
 function afficherPalette() {
-  const paletteCouleurs = document.getElementById("menuChoixCouleur");
-  paletteCouleurs.classList.toggle("active");
+  if (screen.width < 426) {
+    const paletteCouleurs = document.getElementById("menuChoixCouleur");
+    paletteCouleurs.classList.toggle("active");
+  } else {
+    const zoneParametres = document.getElementById("sectionOptions");
+    if (zoneParametres.style.transform == "translateX(-225px)") {
+      zoneParametres.style.transform = "translateX(0px)";
+    } else {
+      zoneParametres.style.transform = "translateX(-225px)";
+      zoneParametres.addEventListener("mouseleave", () => {
+        zoneParametres.style.transform = "translateX(0px)";
+      });
+    }
+  }
 }
 
 function changerCouleur(idBouton) {
@@ -198,4 +226,14 @@ function afficherProjetSuivant() {
     compteurImgCarroussel = 0;
   }
   changerProjetCaroussel(compteurImgCarroussel + 1);
+}
+
+function afficherTooltip(nbTooltip) {
+  const listeTooltips = document.getElementsByClassName("tooltip");
+  listeTooltips[nbTooltip].style.display = "block";
+}
+
+function cacherTooltip(nbTooltip) {
+  const listeTooltips = document.getElementsByClassName("tooltip");
+  listeTooltips[nbTooltip].style.display = "none";
 }
