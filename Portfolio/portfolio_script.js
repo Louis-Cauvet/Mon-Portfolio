@@ -6,11 +6,19 @@ let compteurImgCarroussel = 1;
 changerProjetCaroussel(compteurImgCarroussel);
 
 calibrerAffichageSlider("Experiences");
+addEventListener("resize", () => {
+  const slider = document.getElementById("blocOngletsSlider");
+  if (slider.style.transform == "translateX(-100vw)") {
+    calibrerAffichageSlider("Formation");
+  } else {
+    calibrerAffichageSlider("Experiences");
+  }
+});
 
 // on indique les différentes chaines de caractères qui se relaient lors de l'animation du "typing", ainsi que la vitesse
 var policeTape = new Typed(".typing", {
   strings: ["étudiant en développement web", "alternant dans une agence web", "ravi de vous voir ici !"],
-  typeSpeed: 110,
+  typeSpeed: 75,
   BackSpeed: 100,
   loop: true,
 });
@@ -37,7 +45,9 @@ function afficherMenu() {
   });
 }
 
-const listeBoutonsNavigation = document.getElementsByClassName("boutonNavigation");
+const listeBoutonsNavigation = Array.from(document.getElementsByClassName("boutonNavigation"));
+const logo = document.getElementById("logo");
+listeBoutonsNavigation.push(logo);
 for (let i = 0; i < listeBoutonsNavigation.length; i++) {
   listeBoutonsNavigation[i].addEventListener("click", () => {
     afficherMenu();
@@ -230,6 +240,13 @@ function afficherProjetSuivant() {
 
 function afficherTooltip(nbTooltip) {
   const listeTooltips = document.getElementsByClassName("tooltip");
+  if (nbTooltip == 0) {
+    if (document.getElementsByTagName("html")[0].classList.contains("nuit")) {
+      listeTooltips[nbTooltip].innerHTML = "Cela reste entre nous, n'est-ce pas ?  😎";
+    } else {
+      listeTooltips[nbTooltip].innerHTML = "Le mode sombre dévoile mon côté obscur";
+    }
+  }
   listeTooltips[nbTooltip].style.display = "block";
 }
 

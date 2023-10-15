@@ -118,6 +118,10 @@ ul {
   transition: color 0.5s linear;
 }
 
+.switchCouleur:hover {
+  text-shadow: 1px 1px 2px rgb(49, 48, 48);
+}
+
 .switchCouleurFond {
   background-color: var(--couleurVariable) !important;
   transition: background-color 0.5s linear;
@@ -158,6 +162,16 @@ ul {
   color: var(--theme_fondSecondaire);
   border: var(--bordure);
   border-radius: 10px;
+}
+
+.tooltip:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  text-align: center;
+  border: solid transparent;
+  border-width: 12px;
 }
 
 /**************************************
@@ -327,6 +341,11 @@ nav ul:nth-child(2) {
   margin-top: 60px;
   padding: 20px;
   text-align: center;
+}
+
+#sectionPresentation h1 {
+  font-family: var(--policeSecondaire);
+  max-width: 325px;
 }
 
 #sectionPresentation picture {
@@ -504,16 +523,16 @@ nav ul:nth-child(2) {
 
 #sectionParcours h3 {
   text-align: start;
-  margin-bottom: 10px;
+  margin: 5px 0;
   transition: margin-left 0.3s linear, font-size 0.3s linear;
 }
 
-#sectionParcours ul {
+#rubriqueCompetences > ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 10px;
   margin-top: 0;
   padding-left: 0px;
   overflow-y: scroll;
@@ -524,17 +543,26 @@ nav ul:nth-child(2) {
   width: 0px !important;
 }
 
-#sectionParcours li {
+.categorieCompetence ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--policeSecondaire);
+  font-size: 12px;
+  transition: margin-left 0.3s linear;
+}
+
+.categorieCompetence li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
-  font-family: var(--policeSecondaire);
-  font-size: 12px;
 }
 
-#sectionParcours li img {
+.categorieCompetence li img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -611,7 +639,7 @@ nav ul:nth-child(2) {
   background-color: var(--couleurSecondaireClair);
   border: var(--bordure);
   border-radius: 50px;
-  transition: all 0.25s linear;
+  transition: all 0.5s linear;
   cursor: pointer;
 }
 
@@ -641,7 +669,6 @@ nav ul:nth-child(2) {
   margin-top: 0px;
   font-size: 14px;
   text-align: justify;
-  color: var();
   transition: font-size 0.5s linear;
 }
 
@@ -653,8 +680,11 @@ nav ul:nth-child(2) {
   padding: 6px;
   vertical-align: middle;
   font-size: 32px;
-  color: var(--couleurVariable);
   border: none;
+}
+
+.fa-github:hover {
+  font-size: 36px;
 }
 
 /**************************************
@@ -680,7 +710,11 @@ nav ul:nth-child(2) {
 #sectionContact .fa {
   font-size: 28px;
   width: 28px;
-  color: var(--couleurVariable);
+}
+
+#sectionContact .fa:hover {
+  font-size: 32px;
+  text-shadow: 1px 1px 2px rgb(49, 48, 48);
 }
 
 #sectionContact p {
@@ -726,7 +760,7 @@ footer {
 * Format Telephone moyen
 **************************************/
 @media only screen and (min-width: 321px) {
-  #sectionParcours li img {
+  .categorieCompetence li img {
     width: 40px;
     height: 40px;
   }
@@ -820,10 +854,6 @@ footer {
     transition: transform 0.5s linear;
   }
 
-  #sectionOptions:active {
-    transform: translateX(-215px);
-  }
-
   #sectionOptions ul {
     width: auto;
   }
@@ -874,16 +904,20 @@ footer {
     transition: font-size 0.3s linear;
   }
 
+  #sectionPresentation h1 {
+    max-width: none;
+  }
+
+  #sectionPresentation li {
+    width: 180px;
+  }
+
   #sectionPresentation li h3 {
     font-size: 15px;
   }
 
   #sectionPresentation li p {
     font-size: 14px;
-  }
-
-  #sectionPresentation li {
-    width: 180px;
   }
 
   #blocOngletsTitre {
@@ -1029,18 +1063,11 @@ footer {
     font-size: 15px;
   }
 
-  #rubriqueCompetences {
-    display: flex;
+  #rubriqueCompetences > ul {
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    column-gap: 100px;
     flex-wrap: wrap;
-    width: 100%;
-  }
-
-  #rubriqueCompetences h3 {
-    margin-top: 0;
+    margin-left: 0;
+    column-gap: 50px;
   }
 
   #sectionProjets {
@@ -1072,13 +1099,16 @@ footer {
     font-size: 36px;
   }
 
+  #sectionContact .fa:hover {
+    font-size: 40px;
+  }
+
   #sectionContact p {
     font-size: 16px;
   }
 
   #sectionQuestion {
     margin: 30px auto;
-    padding-right: 0;
     max-width: 525px;
   }
 
@@ -1088,29 +1118,313 @@ footer {
 }
 
 @media only screen and (min-width: 769px) {
+  h2 {
+    font-size: 20px !important;
+  }
+
   .infobulle {
     display: block;
   }
 
   #sectionPresentation .infobulle {
-    right: 200px;
-    top: 220px;
+    right: 180px;
+    top: 210px;
   }
 
   #sectionPresentation .tooltip {
-    right: 310px;
+    right: 290px;
   }
 
   #sectionPresentation .tooltip:after {
-    content: "";
-    position: absolute;
-    right: -23.5px;
+    right: -21px;
     top: 6px;
-    width: 0;
-    height: 0;
-    border: solid transparent;
     border-left-color: var(--theme_fondOpposé);
-    border-width: 12px;
+  }
+
+  #sectionPresentation h2 {
+    margin-top: 90px;
+  }
+
+  #sectionPresentation ul {
+    justify-content: center;
+    column-gap: 50px;
+  }
+
+  #sectionParcours {
+    position: relative;
+  }
+
+  #sectionParcours .infobulle {
+    left: 25px;
+    top: 25px;
+  }
+
+  #sectionParcours .tooltip {
+    left: 135px;
+    top: 40px;
+  }
+
+  #sectionParcours .tooltip:after {
+    left: -21px;
+    top: 6px;
+    border-right-color: var(--theme_fondOpposé);
+  }
+
+  #rubriqueExperiences {
+    margin-top: 40px;
+  }
+
+  #sectionProjets {
+    margin: 0 auto;
+    padding-bottom: 0;
+    max-width: 600px;
+  }
+
+  #carousselProjets {
+    position: relative;
+    min-height: 400px;
+    max-width: 600px;
+  }
+
+  #carousselProjets .infobulle {
+    top: auto;
+    bottom: -15px;
+    right: -50px;
+    opacity: 1;
+  }
+
+  #carousselProjets .tooltip {
+    bottom: 80px;
+    right: -90px;
+    max-width: 190px;
+    text-align: center;
+  }
+
+  #carousselProjets .tooltip:after {
+    left: 55%;
+    bottom: -22px;
+    border-top-color: var(--theme_fondOpposé);
+  }
+
+  #sectionProjets p {
+    font-size: 16px;
+  }
+
+  #sectionProjets h3 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 990px) {
+  nav ul:nth-child(1) {
+    font-size: 22px;
+    gap: 60px;
+  }
+
+  #sectionParcours {
+    padding: 20px 0;
+  }
+
+  #sectionParcours > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #rubriqueExperiences {
+    max-width: 635px;
+    margin: 0 auto;
+  }
+
+  #blocOngletsTitre {
+    max-width: 600px;
+  }
+
+  .blocAccordeon {
+    align-items: flex-start;
+    margin-left: 30px;
+  }
+
+  #rubriqueCompetences {
+    flex-grow: 2;
+    max-width: 600px;
+    background-color: var(--theme_fond);
+    border-left: var(--bordure);
+    z-index: 2;
+  }
+
+  #rubriqueCompetences h2 {
+    margin-top: 20px;
+  }
+
+  #rubriqueCompetences > ul {
+    padding: 0 15px;
+    min-height: 255px;
+    max-width: 650px;
+    column-gap: 80px;
+    row-gap: 0;
+  }
+
+  .categorieCompetence h3 {
+    margin-left: 0 !important;
+  }
+
+  .categorieCompetence ul {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    flex-wrap: wrap;
+  }
+
+  .categorieCompetence li img {
+    width: 35px;
+    height: 35px;
+  }
+
+  #sectionParcours .infobulle {
+    left: 100px;
+    top: auto;
+    bottom: -30px;
+  }
+
+  #sectionParcours .tooltip {
+    left: 205px;
+    top: auto;
+    bottom: -20px;
+  }
+
+  #sectionParcours .tooltip:after {
+    left: -21px;
+    top: 6px;
+    border-right-color: var(--theme_fondOpposé);
+  }
+
+  #sectionsBas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0 70px;
+  }
+
+  #sectionContact {
+    padding-right: 0;
+  }
+
+  #sectionQuestion {
+    margin: 0;
+  }
+
+  footer {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1390px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .tooltip {
+    font-size: 16px;
+  }
+
+  #sectionPresentation {
+    padding: 20px 50px;
+  }
+
+  #sectionPresentation h1 {
+    margin-bottom: 30px;
+  }
+
+  #sectionPresentation .tooltip {
+    bottom: 130px;
+  }
+
+  #sectionPresentation h2 {
+    margin-top: 60px;
+  }
+
+  #sectionPresentation ul {
+    column-gap: 30px;
+  }
+
+  #sectionPresentation li {
+    width: 195px;
+  }
+
+  #sectionPresentation li h3 {
+    font-size: 16px;
+  }
+
+  #sectionPresentation li p {
+    font-size: 16px;
+  }
+
+  #sectionParcours h3 {
+    font-size: 18px;
+  }
+
+  .categorieCompetence ul {
+    font-size: 15px;
+  }
+
+  .categorieCompetence li img {
+    width: 45px;
+    height: 45px;
+  }
+
+  #sectionProjets {
+    max-width: none;
+    padding: 20px 350px;
+  }
+
+  #carousselProjets {
+    margin: 0 auto;
+    min-height: 460px;
+    max-width: 740px;
+  }
+
+  #carousselProjets button {
+    top: 42%;
+  }
+
+  #carousselProjets a {
+    font-size: 16px;
+  }
+
+  #sectionProjets h2 {
+    font-size: 22px !important;
+  }
+
+  #sectionProjets p {
+    font-size: 18px;
+  }
+
+  #sectionProjets h3 {
+    font-size: 18px;
+  }
+
+  #sectionsBas {
+    padding: 30px 40px 70px;
+  }
+
+  #sectionsBas p {
+    font-size: 18px;
+  }
+
+  nav ul:nth-child(2) {
+    top: 515px;
   }
 }
 
