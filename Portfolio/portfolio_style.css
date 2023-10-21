@@ -265,12 +265,9 @@ nav ul:nth-child(1) {
   width: 100%;
 }
 
-nav ul:nth-child(2) {
-  width: 100%;
-}
-
 #sectionOptions {
   position: relative;
+  width: 100%;
   text-align: end;
 }
 
@@ -534,6 +531,7 @@ nav ul:nth-child(2) {
 }
 
 .datesParcours {
+  display: block;
   font-family: var(--policeSecondaire);
   font-size: 14px;
   font-weight: lighter;
@@ -863,18 +861,15 @@ footer {
     font-weight: bold;
   }
 
-  nav ul:nth-child(2) {
-    position: absolute;
-    top: 55px;
-    right: -215px;
-    width: auto;
-  }
-
   #sectionOptions {
+    position: absolute;
+    top: 75px;
+    right: -215px;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 15px;
+    width: auto;
     transition: transform 0.5s linear;
   }
 
@@ -1011,7 +1006,7 @@ footer {
     gap: 40px;
   }
 
-  nav ul:nth-child(2) {
+  #sectionOptions {
     top: 460px;
   }
 
@@ -1363,6 +1358,10 @@ footer {
     font-size: 16px;
   }
 
+  #sectionOptions {
+    top: 515px;
+  }
+
   #sectionPresentation {
     padding: 20px 50px;
   }
@@ -1445,10 +1444,6 @@ footer {
 
   #sectionsBas p {
     font-size: 18px;
-  }
-
-  nav ul:nth-child(2) {
-    top: 515px;
   }
 }
 

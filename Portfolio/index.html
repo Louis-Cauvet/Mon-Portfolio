@@ -17,10 +17,12 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML,CSS,JS,portfolio">
+    <meta name="keywords"
+        content="Louis Cauvet, Cauvet, etudiant developpement web HTML, CSS, JS, portfolio, projet personnel">
     <meta name="description"
         content="Projet consistant en la réalisation d'un portfolio personnel, en HTML, CSS et Javascript">
     <meta name="author" content="Louis Cauvet">
+    <meta name="google-site-verification" content="m8IlZJbMZW05gRrXdISAYhYbB68it3IqAxqJnAVNtgk">
 </head>
 
 <body>
@@ -35,49 +37,47 @@
                 <li><a class="boutonNavigation" href="#sectionProjets">Mes projets</a></li>
                 <li><a class="boutonNavigation" href="#sectionContact">Me contacter</a></li>
             </ul>
-            <ul>
-                <section id="sectionOptions">
+            <div id="sectionOptions">
+                <ul>
+                    <li><button class="fas fa-moon switchCouleur" onclick="changerLuminosite(this)"></button></li>
+                    <li><button class="fas fa-cog switchCouleur" onclick="afficherPalette()"></button></li>
+                </ul>
+                <div id="menuChoixCouleur">
+                    <p>Choix de la couleur</p>
                     <ul>
-                        <li><button class="fas fa-moon switchCouleur" onclick="changerLuminosite(this)"></button></li>
-                        <li><button class="fas fa-cog switchCouleur" onclick="afficherPalette()"></button></li>
+                        <li><button id="boutonCouleur1" class="boutonPalette" style="background-color: #eb1e0f;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur2" class="boutonPalette fa fa-check"
+                                style="background-color: #d05d04;" onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur3" class="boutonPalette" style="background-color: #cfcf1b;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur4" class="boutonPalette" style="background-color: #0bc515;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur5" class="boutonPalette" style="background-color: #28d6b9;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur6" class="boutonPalette" style="background-color: #0b79da;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur7" class="boutonPalette" style="background-color: #250dd5"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur8" class="boutonPalette" style="background-color: #ab0fb6"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur9" class="boutonPalette" style="background-color: #e25cd7;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
+                        <li><button id="boutonCouleur10" class="boutonPalette" style="background-color: #743c09;"
+                                onclick="changerCouleur(this.id)"></button>
+                        </li>
                     </ul>
-                    <div id="menuChoixCouleur">
-                        <p>Choix de la couleur</p>
-                        <ul>
-                            <li><button id="boutonCouleur1" class="boutonPalette" style="background-color: #eb1e0f;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur2" class="boutonPalette fa fa-check"
-                                    style="background-color: #d05d04;" onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur3" class="boutonPalette" style="background-color: #cfcf1b;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur4" class="boutonPalette" style="background-color: #0bc515;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur5" class="boutonPalette" style="background-color: #28d6b9;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur6" class="boutonPalette" style="background-color: #0b79da;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur7" class="boutonPalette" style="background-color: #250dd5"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur8" class="boutonPalette" style="background-color: #95099f"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur9" class="boutonPalette" style="background-color: #e25cd7;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                            <li><button id="boutonCouleur10" class="boutonPalette" style="background-color: #743c09;"
-                                    onclick="changerCouleur(this.id)"></button>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-            </ul>
+                </div>
+            </div>
         </nav>
         <button id="boutonBurger" onclick="afficherMenu()">
             <span id="burger" class="iconeBurger switchCouleurFond"></span>
@@ -119,7 +119,7 @@
             </li>
             <li>
                 <h3>Emission préférée :</h3>
-                <p>L'amour est dans le pré &#x1F331;</p>
+                <p>L'amour est dans le pré 🌱</p>
             </li>
         </ul>
     </section>
@@ -139,8 +139,8 @@
                     <div id="accordeonExperiences" class="blocAccordeon">
                         <details>
                             <summary>Développeur Back-End Wordpress/PHP chez <a href="https://www.acti.fr/"
-                                    class="switchCouleur">Acti</a> (69007 Lyon)<div class="datesParcours">Septembre 2023
-                                    - Août 2024</div>
+                                    class="switchCouleur">Acti</a> (69007 Lyon)<span class="datesParcours">Septembre
+                                    2023 - Août 2024</span>
                             </summary>
                             <p><b>Contrat d'apprentissage en parallèle de ma 3<sup>ème</sup> année de Bachelor
                                     Ingénierie du Web</b><br>
@@ -151,8 +151,8 @@
                         <details>
                             <summary>Développeur-Testeur chez <a href="https://geolys.io/"
                                     class="switchCouleur">Tevolys</a>
-                                (21000 Dijon)<div class="datesParcours">Avril 2022 -
-                                    Juin 2022</div>
+                                (21000 Dijon)<span class="datesParcours">Avril 2022 -
+                                    Juin 2022</span>
                             </summary>
                             <p><b>Stage de fin de 2<sup>ème</sup> année de DUT Informatique</b><br>
                                 - Gestion de tickets-clients, en interaction directe avec eux<br>
@@ -164,7 +164,8 @@
                         <details>
                             <summary>3<sup>ème</sup> année de Bachelor ingénierie du Web (en alternance) |
                                 <a href="https://www.esgi.fr/" class="switchCouleur">ESGI</a>, 69003 Lyon
-                                <div class="datesParcours">Septembre 2023 - Août 2024</div>
+                                <span class="datesParcours">Septembre 2023 - Août 2024
+                                </span>
                             </summary>
                             <p>Cette formation est destinée à me spécialiser en développement web, par l'étude et la
                                 mise en
@@ -176,7 +177,7 @@
                         <details>
                             <summary>3<sup>ème</sup> année de Licence Informatique | Université de Bourgogne, 21000
                                 Dijon
-                                <div class="datesParcours">Septembre 2022 - Décembre 2022</div>
+                                <span class="datesParcours">Septembre 2022 - Décembre 2022</span>
                             </summary>
                             <p>Hésitant encore sur mon choix de spécialisation, je poursuis mon cursus à la fac.
                                 Expérience
@@ -191,7 +192,7 @@
                         </details>
                         <details>
                             <summary>DUT Informatique | IUT de Dijon, 21000 Dijon
-                                <div class="datesParcours">Septembre 2020 - Juin 2022</div>
+                                <span class="datesParcours">Septembre 2020 - Juin 2022</span>
                             </summary>
                             <p>Cette formation généraliste me fait découvrir et mettre en application les bases de
                                 chaque
@@ -204,7 +205,7 @@
                         </details>
                         <details>
                             <summary>Baccalauréat Scientifique | Lycée Montchapet, 21000 Dijon
-                                <div class="datesParcours">Septembre 2018 - Juin 2020</div>
+                                <span class="datesParcours">Septembre 2018 - Juin 2020</span>
                             </summary>
                             <p>Durant mes années de lycée, je choisis par curiosité de prendre l'option "Informatique et
                                 Création Numérique", qui me fait découvrir les bases du Web (HTML, CSS) ainsi que du
@@ -272,8 +273,12 @@
             <button class="infobulle" onmouseover="afficherTooltip(2)" onmouseout="cacherTooltip(2)"></button>
             <p class="tooltip">N'hésitez pas à me faire un retour sur mon travail !</p>
         </div>
-        <h2 id="titreProjet"></h2>
-        <p id="descriptionProjet"></p>
+        <h2 id="titreProjet">Pokedex</h2>
+        <p id="descriptionProjet">Ce projet m'a permis de découvrir la récupération de données à partir d'API (<a
+                href='https://pokeapi.co/' class='switchCouleur'>PokeApi</a> et <a
+                href='https://api-pokemon-fr.vercel.app/' class='switchCouleur'>Vercel API
+                Pokemon</a>),
+            ainsi que leur traitement pour obtenir le rendu souhaité.</p>
         <h3>
             Retrouvez l'intégralité de mes projets : <a href="https://github.com/Louis-Cauvet"
                 class="fa-brands fa-github switchCouleur"></a>
@@ -298,7 +303,7 @@
             <p>Je suis à votre entière disposition, alors n'hésitez pas !</p>
         </section>
 
-        <section id="sectionQuestion">
+        <div id="sectionQuestion">
             <p>if("Vous avez tout lu"){<br>
                 <span>write("Test : Quelle est mon émission préférée ? 😉");</span><br>
                 } else {<br>
@@ -307,7 +312,7 @@
                 </span><br>
                 }
             </p>
-        </section>
+        </div>
     </div>
 
     <footer>

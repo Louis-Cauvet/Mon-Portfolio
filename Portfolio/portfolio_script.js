@@ -177,7 +177,7 @@ function changerProjetCaroussel(indiceBouton) {
       lienProjet.href = "projets/Pokedex/pokedex.html";
       titreCaroussel.innerHTML = "Pokedex";
       descriptionCaroussel.innerHTML =
-        "Ce projet m'a permis de découvrir la récupération de données à partir d'API (<a href='https://pokeapi.co/' class='switchCouleur'>PokeApi</a> et <a href='https://api-pokemon-fr.vercel.app/' id='lienProjet' class='switchCouleur'>Vercel API Pokemon</a>), ainsi que leur traitement pour obtenir le rendu souhaité.";
+        "Ce projet m'a permis de découvrir la récupération de données à partir d'API (<a href='https://pokeapi.co/' class='switchCouleur'>PokeApi</a> et <a href='https://api-pokemon-fr.vercel.app/' class='switchCouleur'>Vercel API Pokemon</a>), ainsi que leur traitement pour obtenir le rendu souhaité.";
       break;
     case 2:
       zoneCaroussel.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('img/capturesProjets/ListeTaches.png')";
@@ -220,7 +220,7 @@ function changerProjetCaroussel(indiceBouton) {
       lienProjet.href = "projets/Pokedex/pokedex.html";
       titreCaroussel.innerHTML = "Pokedex";
       descriptionCaroussel.innerHTML =
-        "Ce projet m'a permis de découvrir la récupération de données à partir d'API (<a href='https://pokeapi.co/' class='switchCouleur'>PokeApi</a> et <a href='https://api-pokemon-fr.vercel.app/' id='lienProjet' class='switchCouleur'>Vercel API Pokemon</a>), ainsi que leur traitement pour obtenir le rendu souhaité.";
+        "Ce projet m'a permis de découvrir la récupération de données à partir d'API (<a href='https://pokeapi.co/' class='switchCouleur'>PokeApi</a> et <a href='https://api-pokemon-fr.vercel.app/' class='switchCouleur'>Vercel API Pokemon</a>), ainsi que leur traitement pour obtenir le rendu souhaité.";
   }
 }
 
